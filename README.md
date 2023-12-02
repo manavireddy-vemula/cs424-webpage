@@ -11,7 +11,7 @@ Utilizing Vega-Lite, our project brings to life the complex data from Chicago's 
 - CSS3
 - JavaScript
 - Vega-Lite
-- Python for setting up a local HTTP server
+- Python for Altair, pre-processing the data and setting up a local HTTP server
 
 ## Live Demo
 Experience our dynamic visualization system live at: [manavireddy-vemula.github.io/cs424-webpage](https://manavireddy-vemula.github.io/cs424-webpage/)
