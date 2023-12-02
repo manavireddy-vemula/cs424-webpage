@@ -26,7 +26,6 @@ If you wish to run the project locally, follow these steps:
 - `index.html` - The main HTML file for the visualization interface.
 - `styles.css` - Contains the styling for our visualization elements.
 - `script.js` - The JavaScript file that generates the Vega-Lite visualizations.
-- `data/` - Directory containing the preprocessed data files in JSON and CSV formats.
 
 ## Contributions
 This project is the result of collaborative efforts of our team.
