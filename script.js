@@ -1,6 +1,6 @@
 const spec1 = {
   "config": {"view": {"continuousWidth": 300, "continuousHeight": 300}},
-  "data": {"url": "https://raw.githubusercontent.com/skumbham/shoumik.github.io/main/data.json"},
+  "data": {"url": "https://raw.githubusercontent.com/manavireddy-vemula/cs424-webpage/main/data.json"},
   "mark": {"type": "bar", "cornerRadiusTopLeft": 3, "cornerRadiusTopRight": 3},
   "encoding": {
     "color": {"field": "sr_type", "legend": null, "type": "nominal"},
@@ -17,7 +17,7 @@ const spec1 = {
     "y": {"field": "count", "title": "Count", "type": "quantitative"}
   },
   "height": 200,
-  "title": "Top 10 Service Requests by Type and Status",
+  //"title": "Top 10 Service Requests by Type and Status",
   "transform": [
     // This initial filter will be replaced by the updateChart function
     {"filter": "datum.status == 'Open'"},
@@ -80,16 +80,16 @@ const spec2 = {
           "value": "lightgray"
         },
         "tooltip": [
-          {"field": "neighborhood", "type": "nominal"},
-          {"field": "open_count", "type": "quantitative"},
-          {"field": "complete_count", "type": "quantitative"},
-          {"field": "total_requests", "type": "quantitative"},
-          {"field": "cancel_count", "type": "quantitative"}
+          {"field": "neighborhood", "title": "Neighborhood", "type": "nominal"},
+          {"field": "total_requests", "title": "Total Requests", "type": "quantitative"},
+          {"field": "complete_count", "title": "Completed Requests", "type": "quantitative"},
+          {"field": "open_count", "title":"Open Requests", "type": "quantitative"},
+          {"field": "cancel_count", "title":"Canceled Requests", "type": "quantitative"}
         ]
       },
       "height": 500,
       "name": "view_1",
-      "title": "Service Requests by Neighborhood",
+      //"title": "Service Requests by Neighborhood",
       "width": 500
     },  
     {
@@ -108,8 +108,8 @@ const spec2 = {
         },
         "tooltip": [
           {"field": "sr_type", "type": "nominal"},
-          {"field": "count", "type": "quantitative"},
-          {"field": "status", "type": "quantitative"}
+          {"field": "count", "title":"Count", "type": "quantitative"},
+         // {"field": "status", "type": "quantitative"}
         ],
         "x": {
           "field": "sr_type",
@@ -119,7 +119,7 @@ const spec2 = {
         "y": {"field": "count", "title": "Count", "type": "quantitative"}
       },
       "height": 100,
-      "title": "Top 5 Service Request Types",
+      //"title": "Top 5 Service Request Types",
       "transform": [
         {"filter": {"param": "param_2", "empty": false}},
         {"filter": {"param": "param_2", "empty": true}}
@@ -59240,6 +59240,9 @@ function updateSpec2(status) {
     case 'Open':
       colorField = 'open_count';
       break;
+    case 'Canceled':
+      colorField = 'cancel_count';
+      break;
     default:
       colorField = 'total_requests';
   }
@@ -59288,19 +59291,21 @@ const spec3 = {
           {
             "field": "created_date",
             "timeUnit": "yearmonthdate",
-            "type": "ordinal"
+            "type": "ordinal",
+            "title": "created date"
           },
-          {"aggregate": "count", "type": "quantitative"}
+          {"aggregate": "count", "title":"Total Requests", "type": "quantitative"}
         ],
         "x": {
           "field": "created_date",
           "timeUnit": "yearmonthdate",
-          "type": "ordinal"
+          "type": "ordinal",
+          "title": "Created Date"
         },
-        "y": {"aggregate": "count", "type": "quantitative"}
+        "y": {"aggregate": "count", "title":"Total Requests", "type": "quantitative"}
       },
       "name": "view_9",
-      "title": "No. of Service Requests (Records) Reported per Day",
+     // "title": "No. of Service Requests (Records) Reported per Day",
       "transform": [
         {
           "aggregate": [{"op": "count", "as": "total_requests"}],
@@ -59317,7 +59322,7 @@ const spec3 = {
         },
         "tooltip": [
           {"field": "sr_type", "type": "nominal"},
-          {"field": "status", "type": "nominal"},
+        //  {"field": "status", "type": "nominal"},
           {"field": "count", "type": "quantitative"}
         ],
         "x": {
@@ -59328,7 +59333,7 @@ const spec3 = {
         },
         "y": {"field": "count", "title": "Count", "type": "quantitative"}
       },
-      "title": "Top 10 Service Requests by Type",
+     // "title": "Top 10 Service Requests by Type",
       "transform": [
         {"filter": {"param": "param_11"}},
         {
@@ -59361,7 +59366,7 @@ const spec3 = {
           {"field": "total_requests", "type": "quantitative"}
         ]
       },
-      "title": "Communication Mediums",
+     // "title": "Communication Mediums",
       "transform": [
         {"filter": {"param": "param_11"}},
         {
@@ -59372,7 +59377,7 @@ const spec3 = {
           "window": [{"op": "rank", "field": "total_requests", "as": "rank"}],
           "sort": [{"field": "total_requests", "order": "descending"}]
         },
-        {"filter": "(datum.rank <= 10)"}
+        {"filter": "(datum.rank <= 5)"}
       ]
     }
   ],
@@ -59405,10 +59410,10 @@ const spec4 = {
           "value": "lightgray"
         },
         "tooltip": [
-          {"field": "ward", "type": "nominal"},
-          {"field": "TIME_TO_CLOSE", "type": "quantitative"}
+          {"field": "ward", "title":"Ward", "type": "nominal"},
+          {"field": "TIME_TO_CLOSE", "title": "Avg Time to Close (hrs)", "type": "quantitative"}
         ],
-        "x": {"field": "ward", "type": "nominal"},
+        "x": {"field": "ward", "title":"Ward", "type": "nominal"},
         "y": {
           "field": "TIME_TO_CLOSE",
           "title": "Average Time to Close (hrs)",
@@ -59449,7 +59454,7 @@ const spec4 = {
           {"field": "count", "title": "Count", "type": "quantitative"}
         ]
       },
-      "title": "Average Time to Close by sr_type for Selected Ward",
+     // "title": "Average Time to Close by sr_type for Selected Ward",
       "transform": [
         {"filter": {"selection": "selector010"}},
         {
@@ -59472,11 +59477,11 @@ var spec6 = {
   "data": {"url": "https://raw.githubusercontent.com/manavireddy-vemula/cs424-webpage/main/bbch_data.csv"},
   "mark": {"type": "boxplot", "extent": "min-max"},
   "encoding": {
-    "x": {"field": "sr_type", "type": "ordinal"},
-    "y": {"field": "created_hour", "type": "quantitative"}
+    "x": {"field": "sr_type", "title":"Service Request Type", "type": "ordinal"},
+    "y": {"field": "created_hour", "title":"Created Hour", "type": "quantitative"}
   },
   "height": 200,
-  "title": "Variability and Central Tendency of Service Request Creation Hours by Type",
+ // "title": "Variability and Central Tendency of Service Request Creation Hours by Type",
   "width": 1600,
   "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}
 
@@ -59486,10 +59491,10 @@ var spec7 = {
   "mark": {"type": "boxplot", "extent": "min-max"},
   "encoding": {
     "color": {"value": "#1f77b4", "legend": null},
-    "x": {"field": "sr_type", "type": "nominal"},
-    "y": {"field": "TIME_TO_CLOSE", "type": "quantitative"}
+    "x": {"field": "sr_type", "title":"Service Request Type", "type": "nominal"},
+    "y": {"field": "TIME_TO_CLOSE", "title":"Time to Close", "type": "quantitative"}
   },
-  "title": "Box Plot of Time to Close by Service Request Type",
+  //"title": "Variability and Central Tendency of Service Request Closing Hour by Type",
   "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"}
 
 // Function to render a Vega-Lite visualization

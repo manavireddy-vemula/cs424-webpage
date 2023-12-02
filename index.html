@@ -3,42 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Current Trends in The Windy City: A Dynamic Overview of Chicago's 311 Service Requests</title>
+    <title>311VisWeb</title>
     <link rel="stylesheet" href="./styles.css">
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 <body>
-    <h1>Current Trends in The Windy City: A Dynamic Overview of Chicago's 311 Service Requests</h1>
-    
-    <select id="statusDropdown">
-        <option value="All">All</option>
-        <option value="Completed">Completed</option>
-        <option value="Open">Open</option>
-        <option value="Canceled">Canceled</option>
-    </select>
+    <h1>Trends in The Windy City: A Dynamic Overview of Chicago's 311 Service Requests</h1>
+    <!--<select id="statusDropdown">
+        <option value="All">Total Requests</option>
+        <option value="Completed">Completed Requests</option>
+        <option value="Open">Open Requests</option>
+        <option value="Canceled">Canceled Requests</option>
+    </select> -->
 
     <div class="grid">
         <div class="left-column">
-            <h2 class="vis-title">Visualization 1</h2>
+            <h2 class="vis-title">Top Requests and Requests within Chicago by Type or Status</h2>
+            <select id="statusDropdown">
+                <option value="All">Total Requests</option>
+                <option value="Completed">Completed Requests</option>
+                <option value="Open">Open Requests</option>
+                <option value="Canceled">Canceled Requests</option>
+            </select>  
             <div class="visualization double" id="combinedVis">
-                
                 <div id="vis1"></div>
                 
                 <div id="vis2"></div>
             </div>
-            <h2 class="vis-title">Visualization 2</h2>
+            <h2 class="vis-title">Trend of Requests Reported over Days using Different Communication Mediums</h2>
             <div class="visualization" id="vis3"></div>
         </div>
         <div class="right-column">
-            <h2 class="vis-title">Visualization 3</h2>
+            <h2 class="vis-title">Average Time to Close Requests in Each Ward</h2>
             <div class="visualization" id="vis4"></div>
+           <!-- <div class="button-container">
+              <button id="button1">Created Hour</button>
+              <button id="button2">Time to Close</button>
+            </div> -->
+            <h2 class="vis-title">Variability and Central Tendency of Service Request Creation and Closing Hours by Type</h2>
             <div class="button-container">
-                <button id="button1">Hour Box Plot</button>
-                <button id="button2">Time to Close Box Plot</button>
-            </div>
-            <h2 class="vis-title">Visualization 4</h2>
+                <button id="button1">Created Hour</button>
+                <button id="button2">Time to Close</button>
+              </div>
             <div class="visualization" id="vis5"></div>
         </div>
     </div>

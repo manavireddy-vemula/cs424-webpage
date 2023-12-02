@@ -12,8 +12,8 @@ h1 {
     padding: 20px 0;
     background-color: #004080;
     color: white;
-    margin: 0;
-}
+    margin: 0; 
+} 
 
 select#statusDropdown {
     display: block;
@@ -69,6 +69,10 @@ select#statusDropdown {
 .button-container button:hover {
     background-color: #0056b3;
     transform: translateY(-2px);
+}
+
+.button-container button:focus {
+    background-color: darkblue;
 }
 
 @media (max-width: 768px) {
