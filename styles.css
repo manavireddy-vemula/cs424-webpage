@@ -1,52 +1,90 @@
+/* General Styles */
+body, html {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Make sure html and body are full height */
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header Styles */
+h1 {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #004080;
+    color: white;
+    margin: 0;
+}
+
+/* Dropdown Styles */
+select#statusDropdown {
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Grid Layout */
 .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: 
-        "viz1 viz2" 
-        "viz3 viz5"
-        "viz4 viz6"
-        "viz7 viz8";
-    gap: 100px;
-    row-gap: 380px;
-    width: 100%;
-    max-width: 1440px;
-    align-items: start;
-    
+    display: flex;
+    height: calc(100vh - 60px); /* Adjust height considering the header */
+}
+
+.left-column, .right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .visualization {
-    width: 480px;
-    height: 300px;
+    flex: 1;
+    margin: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#vis1 {
-    grid-area: viz1;
+/* Specific for the combined visualization */
+.visualization.double {
+    margin-bottom: 0; /* Remove the margin at the bottom */
 }
 
-#vis2 {
-    grid-area: viz2;
+.button-container {
+    margin: 10px;
+    text-align: center;
 }
 
-#vis3 {
-    grid-area: viz3;
+.button-container button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-#vis4 {
-    grid-area: viz4;
+.button-container button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
 }
 
-#vis5 {
-    grid-area: viz5;
-}
-
-#vis6 {
-    grid-area: viz6;
-}
-
-#vis7 {
-    grid-area: viz7;
-}
-
-#vis8 {
-    grid-area: viz8;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .grid {
+        flex-direction: column;
+    }
+    .left-column, .right-column {
+        height: auto;
+    }
+    .visualization.double {
+        margin-bottom: 10px; /* Re-add the margin at the bottom for smaller screens */
+    }
 }

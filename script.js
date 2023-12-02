@@ -16,7 +16,7 @@ const spec1 = {
     },
     "y": {"field": "count", "title": "Count", "type": "quantitative"}
   },
-  "height": 400,
+  "height": 200,
   "title": "Top 10 Service Requests by Type and Status",
   "transform": [
     // This initial filter will be replaced by the updateChart function
@@ -91,7 +91,7 @@ const spec2 = {
       "name": "view_1",
       "title": "Service Requests by Neighborhood",
       "width": 500
-    },
+    },  
     {
       "data": {"name": "data-245dff7df0f4c3ae08528ff6866e33f5"},
       "mark": {"type": "bar"},
@@ -59393,7 +59393,7 @@ const spec4 = {
   "hconcat": [
     {
       "data": {"url": "https://raw.githubusercontent.com/manavireddy-vemula/cs424-webpage/main/data_attc.csv"},
-      "mark": "bar",
+      "mark": "bar", "height":400,
       "encoding": {
         "color": {
           "condition": {
@@ -59460,7 +59460,8 @@ const spec4 = {
           "groupby": ["sr_type"]
         }
       ],
-      "width": 600
+      "width": 600,
+      "height":400
     }
   ],
   "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}
@@ -59493,7 +59494,7 @@ var spec7 = {
 
 // Function to render a Vega-Lite visualization
 function renderVegaLite(spec) {
-    vegaEmbed('#vis7', spec, { "actions": false });
+    vegaEmbed('#vis5', spec, { "actions": false });
 }
 
 // Set up event listeners for the buttons
