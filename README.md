@@ -31,7 +31,7 @@ If you wish to run the project locally, follow these steps:
 This project is the result of collaborative efforts of our team.
 
 ## Acknowledgements
-Special thanks to Fabio Miranda and the CS424 - Visualization & Visual Analytics course for guiding this project.
+Special thanks to Prof. Fabio Miranda and the CS424 - Visualization & Visual Analytics course for guiding this project.
 
 Enjoy exploring "Current Trends in The Windy City" and uncovering the hidden stories within Chicago's 311 service requests data!
 
