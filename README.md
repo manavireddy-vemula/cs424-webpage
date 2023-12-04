@@ -1,7 +1,7 @@
 # Trends in The Windy City: A Dynamic Overview of Chicago's 311 Service Requests
 
 ## Introduction
-"Current Trends in The Windy City" is a dynamic data visualization project showcasing Chicago's 311 service requests. This interactive dashboard, deployed at [manavireddy-vemula.github.io/cs424-webpage](https://manavireddy-vemula.github.io/cs424-webpage/), invites users to explore and analyze the city's service request data through engaging and informative visualizations.
+"Trends in The Windy City" is a dynamic data visualization project showcasing Chicago's 311 service requests. This interactive dashboard, deployed at [manavireddy-vemula.github.io/cs424-webpage](https://manavireddy-vemula.github.io/cs424-webpage/), invites users to explore and analyze the city's service request data through engaging and informative visualizations.
 
 ## Project Overview
 Utilizing Vega-Lite, our project brings to life the complex data from Chicago's 311 service requests. The dashboard is designed for user interaction, enabling the discovery of underlying trends and insights within the city's service data.
