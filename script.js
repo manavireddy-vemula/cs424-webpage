@@ -67,7 +67,9 @@ const spec2 = {
   "hconcat": [
     {
       "data": {"name": "data-d172b0f1f54aa406a4f4366adceddac5"},
-      "mark": {"type": "geoshape"},
+      "mark": {"type": "geoshape",
+      "stroke": "black",
+      "strokeWidth": "1"},
       "encoding": {
         "color": {
           "condition": {
@@ -59448,7 +59450,7 @@ const spec4 = {
           {"field": "sr_type", "type": "nominal"},
           {
             "field": "average_time",
-            "title": "Average Time",
+            "title": "Average Time to Close (hrs)",
             "type": "quantitative"
           },
           {"field": "count", "title": "Count", "type": "quantitative"}
@@ -59473,17 +59475,20 @@ const spec4 = {
 vegaEmbed("#vis4", spec4);
 
 var spec6 = {
-  "config": {"view": {"continuousWidth": 400, "continuousHeight": 300}},
-  "data": {"url": "https://raw.githubusercontent.com/manavireddy-vemula/cs424-webpage/main/bbch_data.csv"},
+  "config": {"view": {"continuousWidth": 300, "continuousHeight": 300}},
+  "data": {"url": "https://raw.githubusercontent.com/manavireddy-vemula/cs424-webpage/main/data.json"},
   "mark": {"type": "boxplot", "extent": "min-max"},
   "encoding": {
-    "x": {"field": "sr_type", "title":"Service Request Type", "type": "ordinal"},
-    "y": {"field": "created_hour", "title":"Created Hour", "type": "quantitative"}
+    "x": {"field": "sr_type", "type": "ordinal"},
+    "y": {"field": "created_hour", "type": "quantitative"}
   },
   "height": 200,
- // "title": "Variability and Central Tendency of Service Request Creation Hours by Type",
+  //"title": "Variability and Central Tendency of Service Request Creation Hours by Type",
+  "transform": [
+    {"calculate": "hours(datum.created_date)", "as": "created_hour"}
+  ],
   "width": 1600,
-  "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json"}
 
 var spec7 = {
   "config": {"view": {"continuousWidth": 300, "continuousHeight": 300}},
